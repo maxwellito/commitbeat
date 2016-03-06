@@ -1,0 +1,190 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #999;
+  background: #fff;
+}
+
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  font-style: inherit;
+}
+
+button, input {
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: inherit; 
+  box-sizing: border-box;
+}
+
+button:active {
+  background-color: #999;
+  color: #fff;
+}
+
+svg * {
+  fill: #999;
+}
+
+*:focus {
+  outline: none;
+}
+
+
+/**
+ * Components
+ ************************************************
+ */
+.cnt {
+  padding: 1rem;
+}
+
+.box {
+  border-bottom: 1px solid #999;
+}
+
+.full {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.inline-text {
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.active {
+  color: #fff;
+  background-color: #999;
+}
+
+
+/* Inline action */
+.inline-action {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.inline-action > *:first-child {
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.inline-action > *:last-child {
+  width: 20%;
+  box-sizing: border-box;
+  border-left: 1px solid #999;
+}
+
+
+/* Grid */
+.grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.grid > div {
+  border-right: 1px solid #999;
+  height: 50vw;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+.grid > div:last-child {
+  border-right: none;
+}
+
+.grid > div > div {
+  height: 12.5%;
+  border-bottom: 1px solid #999;
+}
+
+.grid div.playing {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEElEQVQImWNgQAYzZ878DwAGcgLL6dA42gAAAABJRU5ErkJggg==) repeat;
+}
+
+
+/**
+ * UI parts
+ ************************************************
+ */
+
+.splashscreen {
+  display: flex;
+  min-height: 500px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon-list > * {
+  width: 2rem;
+  height: 2rem;
+  margin-right: .5rem;
+}
+
+.bpm {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.bpm:after {
+  content: "bpm";
+  font-size: 1.25rem;
+}
+
+.commit-list > *:last-child {
+  border-bottom: none;
+}
+
+
+/**
+ * Media Queries
+ ************************************************
+ */
+
+@media (max-width: 767px) {
+  .player-info > *:first-child {width: 60%;}
+  .player-info > *:last-child  {width: 40%;}
+}
+
+@media (min-width: 768px) {
+  .player {
+    width: 60%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .playlist {
+    width: 40%;
+    min-height: 75vw;
+    display: inline-block;
+    vertical-align: top;
+    border-left: 1px solid #999;
+    box-sizing: border-box;
+  }
+
+  .grid > div {
+    height: 30vw;
+  }
+}
