@@ -114,7 +114,6 @@ Player.prototype.setHash = function (hash) {
 
 Player.prototype.play = function () {
   this.timeoutId = setTimeout(this.play.bind(this), this.bpmInterval);
-  console.info('>>', this.currentNote);
   this.eGrid.childNodes[this.currentNote].classList.remove('playing');
   this.currentNote = (this.currentNote + 1) % 16;
   this.eGrid.childNodes[this.currentNote].classList.add('playing');
@@ -168,7 +167,6 @@ function hexToArray (input) {
     output[len] = (val % 2 === 0) ? 0 : 1;
     val = val >> 1;
   }
-  console.log(output);
   return output;
 }
 

@@ -27,12 +27,9 @@
     var currentTopDocument = getScrollTopDocument();
     var gap = scrollToReach - currentTopDocument;
 
-    console.count('scroll');
-
     if (Math.abs(gap) < 2) {
       window.scrollTo(0, scrollToReach);
       timer = null;
-      console.info('- END OF TRANSMISSION -');
       return;
     }
     
