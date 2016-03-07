@@ -76,6 +76,8 @@ Player.prototype.setHash = function (hash) {
   //   -- Instruments
   //     ---- ??? (please make suggestions)
   //         -------------------------------- Grid
+  var i, j, channelName;
+
   if (!this.isReady) {
     return;
   }
@@ -87,18 +89,18 @@ Player.prototype.setHash = function (hash) {
   // Intruments
   var channelMap = hexToArray(hash.substr(2, 2));
   this.notes = [];
-  channelMap.forEach(function (bit, index) {
-    var channelName = this.channels[bit]
-    this.notes.push(this.soundLib[channelName][index]);
-  }.bind(this));
+  for (i = 0; i < channelMap.length; i++) {
+    channelName = this.channels[channelMap[i]]
+    this.notes.push(this.soundLib[channelName][i]);
+  }
 
   // Partition
   this.part = [];
-  for (var i = 0; i < 8; i++) {
+  for (i = 0; i < 8; i++) {
     this.part[i] = hexToArray(hash.substr(8 + 4 * i, 4));
-    this.part[i].forEach(function (value, index) {
-      this.eGrid.childNodes[index].childNodes[i].className = value ? 'active' : '';
-    }.bind(this));
+    for (j = 0; j < this.part[i].length; j++) {
+      this.eGrid.childNodes[j].childNodes[i].className = this.part[i][j] ? 'active' : '';
+    }
   }
 
   this.eSha.textContent = hash;

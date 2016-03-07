@@ -71,9 +71,9 @@ Playlist.prototype.loadRepo = function (repo) {
   githubFetcher(repo, function (commits) {
     window.smoothScrollTo(this.element);
     this.clearList();
-    commits.forEach(function (commit) {
-      this.addListItem(commit);
-    }.bind(this));
+    for (var i = 0; i < commits.length; i++) {
+      this.addListItem(commits[i]);
+    }
     this.eRepoInfo.textContent = repo + ' commits';
   }.bind(this));
 };
