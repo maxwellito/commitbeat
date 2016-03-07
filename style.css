@@ -6,7 +6,7 @@ html, body {
   background: #fff;
 }
 
-body {
+html {
   font-family: 'Helvetica', 'Arial', sans-serif;
   font-weight: 300;
   font-size: 1em;
@@ -154,8 +154,8 @@ svg * {
   font-size: 1.25rem;
 }
 
-.commit-list > *:last-child {
-  border-bottom: none;
+.playlist {
+  padding-bottom: 2rem; 
 }
 
 
@@ -187,5 +187,17 @@ svg * {
 
   .grid > div {
     height: 30vw;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 1.25em;
+  }
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 1.5em;
   }
 }
