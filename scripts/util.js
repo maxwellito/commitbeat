@@ -17,3 +17,31 @@ function githubFetcher (repo, callback) {
   xmlhttp.open('GET', url, true);
   xmlhttp.send();
 }
+
+/**
+ * Transform an string of hex chars into
+ * an array of int
+ * @param  {string} input HEX code to transform
+ * @return {Int8Array}    Array of integers
+ */
+function hexToArray (input) {
+  var len = input.length * 4,
+    val = hexToInt(input),
+    output = new Int8Array(input.length * 4);
+
+  for (len--; len >= 0; len--) {
+    output[len] = (val % 2 === 0) ? 0 : 1;
+    val = val >> 1;
+  }
+  return output;
+}
+
+/**
+ * Transform a string of hex chars into
+ * an integer
+ * @param  {string} input HEX code to transform
+ * @return {number}
+ */
+function hexToInt (input) {
+  return parseInt(input, 16);
+}

@@ -159,19 +159,3 @@ Player.prototype.print = function () {
     console.log(out);
   }
 };
-
-function hexToArray (input) {
-  var len = input.length * 4,
-    val = hexToInt(input),
-    output = new Int8Array(input.length * 4);
-
-  for (len--; len >= 0; len--) {
-    output[len] = (val % 2 === 0) ? 0 : 1;
-    val = val >> 1;
-  }
-  return output;
-}
-
-function hexToInt (input) {
-  return parseInt(input, 16);
-}
