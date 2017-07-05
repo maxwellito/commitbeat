@@ -25,13 +25,15 @@ function githubFetcher (repo, callback) {
  * @return {Int8Array}    Array of integers
  */
 function hexToArray (input) {
-  var len = input.length * 4,
-    val = hexToInt(input),
-    output = new Int8Array(input.length * 4);
+  var four, val, len = input.length * 4,
+      output = [];
 
-  for (len--; len >= 0; len--) {
-    output[len] = (val % 2 === 0) ? 0 : 1;
-    val = val >> 1;
+  for (var i = 0; i < len; i++) {
+    val = hexToInt(input.substr(i, 1))
+    for (four = 3; four >= 0; four--) {
+      output[i * 4 + four] = (val % 2 === 0) ? 0 : 1;
+      val = val >> 1;
+    }
   }
   return output;
 }
@@ -44,4 +46,15 @@ function hexToArray (input) {
  */
 function hexToInt (input) {
   return parseInt(input, 16);
+}
+
+/**
+ * Trun a binary array to an integer
+ * @param  {array} input Input to transform
+ * @return {number}
+ */
+function binToInt (input) {
+  return input.reduce(function (acc, val) {
+    return acc * 2 + val;
+  }, 0);
 }
