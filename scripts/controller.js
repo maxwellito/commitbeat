@@ -18,10 +18,10 @@ var soundMap = {
     ['assets/audio/tr808/cl.mp3',   'assets/audio/tr808/cl.ogg'],
     ['assets/audio/tr808/ch.mp3',   'assets/audio/tr808/ch.ogg'],
     ['assets/audio/tr808/cp.mp3',   'assets/audio/tr808/cp.ogg'],
-    ['assets/audio/tr808/ma.mp3',   'assets/audio/tr808/ma.ogg'],
-    ['assets/audio/tr808/rs.mp3',   'assets/audio/tr808/rs.ogg'],
-    ['assets/audio/tr808/oh10.mp3', 'assets/audio/tr808/oh10.ogg'],
-    ['assets/audio/tr808/hc10.mp3', 'assets/audio/tr808/hc10.ogg']
+    ['assets/audio/ableton/OpenHat.ogg'],
+    ['assets/audio/ableton/ClosedHat.ogg'],
+    ['assets/audio/ableton/Clap.ogg'],
+    ['assets/audio/ableton/Kick.ogg']
   ]
 };
 
