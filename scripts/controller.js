@@ -28,10 +28,16 @@ var soundMap = {
 
 var thePlayer   = new Player(document.getElementById('player'), soundMap);
 var thePlaylist = new Playlist(document.getElementById('playlist'), thePlayer);
+var hashRegex = /^[0-9a-f]{40}$/i;
 
-function loadRepo (repo) {
-  if (!repo) {
-    repo = document.getElementById('input-repo').value;  
+function loadRepo (input) {
+  if (!input) {
+    input = document.getElementById('input-repo').value;  
   }
-  thePlaylist.loadRepo(repo);
+  if (hashRegex.test(input)) {
+    thePlayer.setHash(input)
+  }
+  else {
+    thePlaylist.loadRepo(input);
+  }
 }
